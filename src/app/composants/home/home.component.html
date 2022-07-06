@@ -1,0 +1,88 @@
+<h1>Accueil</h1>
+<h2> Biding</h2>
+<ul>
+  <li>{{ stagiaire1.prenom}} </li>
+ </ul>
+ <!-- interpolation -->
+ <p> {{ title}}</p>
+ <!-- biding  / les crochets(tout ce qui est ds js) = va chercher les contenus dans la class-->
+ <p  [innerHTML]="title"></p>
+ <!-- event biding = envoie vers la class pour executer une méthode -->
+ <button (click)="direBonjour()"> Clique </button>
+<h3>*ngFor</h3>
+
+ <ul>
+  <li *ngFor="let elt of tab"> {{elt}}</li>
+</ul>
+
+<ul>
+  <li *ngFor="let stagiaire of stagiaires, index as i">   
+   {{ i }} : {{stagiaire.nom}}   {{stagiaire.prenom}} {{stagiaire.num}}
+   </li>
+</ul>
+
+<h3>*ngIf</h3>
+
+<p *ngIf="tab[0] % 2 == 0"> {{ tab[0]}} est pair</p>
+<p *ngIf="tab[1] % 2 == 0; else impair"> {{ tab[1]}} est pair</p>
+    <ng-template #impair>
+      <p>{{ tab[1]}} est impair </p>
+    </ng-template>
+
+
+    <h3> ngFor et ngIf</h3>
+<!-- ng-container pr executer ng-if et ng-for sans encombrer le DOM -->
+<ul>
+  <ng-container *ngFor="let elt of tab">
+    <li *ngIf="elt % 2 == 0; else sinon"> {{ elt }} : pair</li>
+    <ng-template #sinon>
+      <li> {{ elt }} : impair</li>
+    </ng-template>
+  </ng-container>
+</ul>
+
+<ul>
+  <ng-container *ngFor="let stagiaire of stagiaires; index as i">
+    <li *ngIf="i % 2 ==0; else affPren">
+      {{ stagiaire.nom}}
+    </li>
+    <ng-template #affPren>
+      <li> {{ stagiaire.prenom }} </li>
+    </ng-template>
+  </ng-container>
+</ul>
+
+<!-- even = pair et odd=impair -->
+<ul>
+  <ng-container *ngFor="let elt of stagiaires; let pair=odd">
+    <li *ngIf="pair; else prenom"> {{ elt.nom }} </li>
+    <ng-template #prenom>
+      <li> {{ elt.prenom }}</li>
+    </ng-template>
+  </ng-container>
+</ul>
+
+<h3> *ngClass</h3>
+
+<ul>
+  <li *ngFor="let elt of tab; let i=index" [ngClass]="{'rouge': i % 2 == 0, 'bleu': i % 2 != 0}">
+    {{ elt }}
+  </li>
+</ul>
+<ul>
+  <li *ngFor="let elt of tab; let i=index" [ngClass]="elt % 2 == 0 ? 'orange' : 'vert'">
+    {{ elt }}
+  </li>
+</ul>
+
+<ul>
+  <ng-container *ngFor="let elt of moyennes; index as i">
+    <li *ngIf="elt < 10; else bien"> {{ elt }} echec </li>
+    <ng-template #bien  >
+      <li *ngIf="elt < 15; else excellent"> {{ elt }}  bien</li>
+    </ng-template>
+    <ng-template #excellent>
+      <li *ngIf="elt > 15"> {{ elt}} excellent</li>
+    </ng-template>
+  </ng-container>
+</ul>
