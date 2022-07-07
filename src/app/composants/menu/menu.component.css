@@ -1,3 +1,6 @@
 * {
     list-style-type: none;
 }
+.active {
+   font-weight: bold;
+}
