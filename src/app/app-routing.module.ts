@@ -19,6 +19,7 @@ const routes: Routes = [
   {path: 'adresse', component: AdresseComponent },
   {path: 'error', component: NotFoundComponent },
   {path: 'stagiaire/:nom/:prenom', component:StagiaireComponent },
+  {path: 'tableau', component: TableauComponent },
   {path: 'tableau/:index', component: TableauComponent },
   {path: 'calcul', component: CalculComponent },
   {path: '**', redirectTo: '/error' },
