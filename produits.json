@@ -1,0 +1,18 @@
+{
+  "produits": [
+    {
+      "id": 1,
+      "designation": "Peluche Papillon",
+      "prixUnitaire": 30,
+      "quantiteEnStock": 15,
+      "chemin": ""
+    },
+    {
+      "id": 2,
+      "designation": "GameBoy",
+      "prixUnitaire": 450,
+      "quantiteEnStock": 10,
+      "chemin": ""
+    }
+  ]
+}

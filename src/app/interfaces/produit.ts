@@ -3,4 +3,5 @@ export interface Produit {
     designation?: string;
     prixUnitaire?: string;
     quantiteEnStock?: string;
+    chemin?: string;
 }

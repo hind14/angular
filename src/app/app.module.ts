@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {  HttpClientModule } from '@angular/common/http';
 import { AdresseComponent } from './composants/adresse/adresse.component';
 import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
 import { MenuComponent } from './composants/menu/menu.component';
@@ -17,6 +17,7 @@ import { SubStrPipe } from './pipes/sub-str.pipe';
 import { FormulaireComponent } from './composants/formulaire/formulaire.component';
 import { FormsModule } from '@angular/forms';
 import { ProduitComponent } from './composants/produit/produit.component';
+import { DetailsProduitComponent } from './composants/details-produit/details-produit.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +35,13 @@ import { ProduitComponent } from './composants/produit/produit.component';
     SubStrPipe,
     FormulaireComponent,
     ProduitComponent,
+    DetailsProduitComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
